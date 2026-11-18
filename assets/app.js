@@ -140,6 +140,14 @@
     app.appendChild(wrap);
   }
 
-  var pages = {pois:renderPOIs, npcs:renderNPCs, lore:renderLore, dinos:renderDinos};
+  /* ---------- Firearms (rich HTML; player rules public, DM notes DM-only) ---------- */
+  function renderFirearms(){
+    var wrap = el("div","rules");
+    var body = el("div"); body.innerHTML = S.public_html || ""; wrap.appendChild(body);
+    
+    app.appendChild(wrap);
+  }
+
+  var pages = {pois:renderPOIs, npcs:renderNPCs, lore:renderLore, dinos:renderDinos, firearms:renderFirearms};
   (pages[S.page]||function(){})();
 })();
